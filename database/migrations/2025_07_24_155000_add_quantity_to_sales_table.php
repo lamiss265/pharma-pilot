@@ -1,0 +1,35 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up(): void
+    {
+        if (!Schema::hasColumn('sales', 'quantity')) {
+            Schema::table('sales', function (Blueprint $table) {
+                $table->integer('quantity')->default(0)->after('receipt_number');
+            });
+        }
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down(): void
+    {
+        if (Schema::hasColumn('sales', 'quantity')) {
+            Schema::table('sales', function (Blueprint $table) {
+                $table->dropColumn('quantity');
+            });
+        }
+    }
+};
