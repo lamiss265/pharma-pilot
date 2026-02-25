@@ -77,7 +77,7 @@ After running seeders, you can log in with:
 
 | Role  | Email             | Password   |
 |-------|-------------------|------------|
-| Admin | admin@pharma.com  | password   |
+| Admin | admin@example.com  | password   |
 
 > ⚠️ **Note:** Change default passwords after first login.
 
